@@ -33,3 +33,13 @@ GROUP BY materia.name;
 SELECT COUNT(*) AS corsi, department_id 
 FROM `degrees` 
 GROUP BY department_id;
+
+------- Versione con display del nome del dipartimento ---------
+
+SELECT COUNT(*) AS corsi, dipartimenti.name
+FROM `degrees` AS corsi 
+INNER JOIN departments AS dipartimenti
+ON corsi.department_id = dipartimenti.id
+GROUP BY dipartimenti.name;
+
+----------------------------------------------------------------
