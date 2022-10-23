@@ -16,6 +16,18 @@ SELECT AVG(vote) AS vote_average, exam_id
 FROM `exam_student` 
 GROUP BY `exam_id`;
 
+------- Versione con display del nome dell'esame ---------
+
+SELECT AVG(appelli.vote) AS vote_average, materia.name AS exam_name
+FROM `exam_student` AS appelli
+INNER JOIN `exams` AS esami
+ON appelli.exam_id = esami.id
+INNER JOIN `courses` AS materia
+ON materia.id = esami.course_id
+GROUP BY materia.name;
+
+----------------------------------------------------------
+
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
 
 
