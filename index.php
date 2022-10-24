@@ -80,7 +80,7 @@ if ($conn && $conn->connect_error) {
                     // output data of each row
                     while ($row = $result->fetch_assoc()) {
                 ?>
-                        <li> <?= $row['name'] . '' . $row['level'] ?> </li>
+                        <li class="pb-2"> <?= $row['name'] . ' <br> ' . $row['level'] ?> </li>
                 <?php
                     }
                 } elseif ($result) {
