@@ -59,8 +59,26 @@ if ($conn && $conn->connect_error) {
 
             <h3>Insegnanti</h3>
 
-            <ul>
-                <li></li>
+            <ul class="list-unstyled">
+                <?php
+
+                $sql = "SELECT name, surname FROM `teachers` ORDER BY surname;";
+                $result = $conn->query($sql);
+
+                if ($result && $result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                ?>
+                        <li> Prof./Prof.ssa <?= $row['surname'] . ' ' . $row['name'] ?> </li>
+                <?php
+                    }
+                } elseif ($result) {
+                    echo "0 results";
+                } else {
+                    echo "query error";
+                }
+
+                ?>
             </ul>
 
         </section>
