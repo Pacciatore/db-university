@@ -132,6 +132,10 @@ if ($conn && $conn->connect_error) {
 
     </div>
 
+    <?php
+    $conn->close();
+    ?>
+
 </body>
 
 </html>
