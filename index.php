@@ -43,6 +43,7 @@ if ($conn && $conn->connect_error) {
 
     <div class="container d-flex pt-3">
 
+        <!-- Studenti -->
         <section class="col-4">
 
             <h3>Studenti</h3>
@@ -53,6 +54,7 @@ if ($conn && $conn->connect_error) {
 
         </section>
 
+        <!-- Insegnanti -->
         <section class="col-4">
 
             <h3>Insegnanti</h3>
@@ -63,6 +65,7 @@ if ($conn && $conn->connect_error) {
 
         </section>
 
+        <!-- Corsi -->
         <section class="col-4">
 
             <h3>Corsi</h3>
