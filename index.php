@@ -52,16 +52,16 @@ if ($conn && $conn->connect_error) {
                 <?php
 
                 $sql = "SELECT name, surname FROM `students` ORDER BY surname;";
-                $result = $conn->query($sql);
+                $students = $conn->query($sql);
 
-                if ($result && $result->num_rows > 0) {
+                if ($students && $students->num_rows > 0) {
                     // output data of each row
-                    while ($row = $result->fetch_assoc()) {
+                    while ($row = $students->fetch_assoc()) {
                 ?>
                         <li> <?= $row['surname'] . ' ' . $row['name'] ?> </li>
                 <?php
                     }
-                } elseif ($result) {
+                } elseif ($students) {
                     echo "0 results";
                 } else {
                     echo "query error";
@@ -81,16 +81,16 @@ if ($conn && $conn->connect_error) {
                 <?php
 
                 $sql = "SELECT name, surname FROM `teachers` ORDER BY surname;";
-                $result = $conn->query($sql);
+                $teachers = $conn->query($sql);
 
-                if ($result && $result->num_rows > 0) {
+                if ($teachers && $teachers->num_rows > 0) {
                     // output data of each row
-                    while ($row = $result->fetch_assoc()) {
+                    while ($row = $teachers->fetch_assoc()) {
                 ?>
                         <li> Prof./Prof.ssa <?= $row['surname'] . ' ' . $row['name'] ?> </li>
                 <?php
                     }
-                } elseif ($result) {
+                } elseif ($teachers) {
                     echo "0 results";
                 } else {
                     echo "query error";
@@ -110,16 +110,16 @@ if ($conn && $conn->connect_error) {
                 <?php
 
                 $sql = "SELECT name, level FROM `degrees`;";
-                $result = $conn->query($sql);
+                $degrees = $conn->query($sql);
 
-                if ($result && $result->num_rows > 0) {
+                if ($degrees && $degrees->num_rows > 0) {
                     // output data of each row
-                    while ($row = $result->fetch_assoc()) {
+                    while ($row = $degrees->fetch_assoc()) {
                 ?>
                         <li class="pb-2"> <?= $row['name'] . ' <br> ' . $row['level'] ?> </li>
                 <?php
                     }
-                } elseif ($result) {
+                } elseif ($degrees) {
                     echo "0 results";
                 } else {
                     echo "query error";
