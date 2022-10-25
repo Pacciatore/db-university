@@ -8,3 +8,8 @@ section>ul::-webkit-scrollbar,
 section>ol::-webkit-scrollbar {
     visibility: hidden;
 }
+
+#researchDisplay li:hover {
+    cursor: default;
+    color: red;
+}

@@ -132,15 +132,43 @@ if ($conn && $conn->connect_error) {
 
     </div>
 
+    <!-- Ricerca studenti -->
     <div class="container">
-        <form action="." method="get" class="d-flex flex-column align-items-center gap-3">
+        <form action="." method="get" class="d-flex flex-column align-items-center gap-2">
 
             <label for="search" class="col-4">Ricerca studenti per cognome</label>
 
-            <input type="text" name="search" class="col-4">
+            <input type="text" name="surnameSearch" class="col-4">
             <input type="submit" value="Cerca" class="col-4">
 
         </form>
+
+        <ol id="researchDisplay" class="d-flex flex-wrap py-3">
+            <?php
+
+            if (isset($_GET['surnameSearch'])) {
+                $surnameSearch = $_GET['surnameSearch'];
+                $sql = "SELECT name, surname FROM students WHERE surname = '$surnameSearch'; ";
+
+                $searchedStudent = $conn->query($sql);
+
+                if ($searchedStudent && $searchedStudent->num_rows > 0) {
+                    while ($rowStudent = $searchedStudent->fetch_assoc()) {
+            ?>
+                        <li class="col-4 pb-2"> <?= $rowStudent['surname'] . ' ' . $rowStudent['name'] ?> </li>
+            <?php
+                    }
+                } elseif ($searchedStudent) {
+                    echo "La ricerca non ha prodotto risultati";
+                } else {
+                    echo "query error";
+                }
+            }
+
+            ?>
+
+        </ol>
+
     </div>
 
     <?php
