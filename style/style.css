@@ -4,6 +4,7 @@ section>ol {
     overflow-y: auto;
 }
 
-::-webkit-scrollbar {
+section>ul::-webkit-scrollbar,
+section>ol::-webkit-scrollbar {
     visibility: hidden;
 }
