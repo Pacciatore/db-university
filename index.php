@@ -132,6 +132,17 @@ if ($conn && $conn->connect_error) {
 
     </div>
 
+    <div class="container">
+        <form action="." method="get" class="d-flex flex-column align-items-center gap-3">
+
+            <label for="search" class="col-4">Ricerca studenti per cognome</label>
+
+            <input type="text" name="search" class="col-4">
+            <input type="submit" value="Cerca" class="col-4">
+
+        </form>
+    </div>
+
     <?php
     $conn->close();
     ?>
