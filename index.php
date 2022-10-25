@@ -148,9 +148,16 @@ if ($conn && $conn->connect_error) {
 
             if (isset($_GET['surnameSearch'])) {
                 $surnameSearch = $_GET['surnameSearch'];
-                $sql = "SELECT name, surname FROM students WHERE surname = '$surnameSearch'; ";
 
-                $searchedStudent = $conn->query($sql);
+                // prepare and bind
+                $stmt = $conn->prepare("SELECT name, surname FROM students WHERE surname = ? ");
+                $stmt->bind_param("s", $surnameSearch);
+
+                // set parameters and execute
+                $stmt->execute();
+
+                // get result
+                $searchedStudent = $stmt->get_result();
 
                 if ($searchedStudent && $searchedStudent->num_rows > 0) {
                     while ($rowStudent = $searchedStudent->fetch_assoc()) {
