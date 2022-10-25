@@ -48,7 +48,7 @@ if ($conn && $conn->connect_error) {
 
             <h3>Studenti</h3>
 
-            <ul class="list-unstyled">
+            <ol>
                 <?php
 
                 $sql = "SELECT name, surname FROM `students` ORDER BY surname;";
@@ -68,7 +68,7 @@ if ($conn && $conn->connect_error) {
                 }
 
                 ?>
-            </ul>
+            </ol>
 
         </section>
 
@@ -77,7 +77,7 @@ if ($conn && $conn->connect_error) {
 
             <h3>Insegnanti</h3>
 
-            <ul class="list-unstyled">
+            <ol>
                 <?php
 
                 $sql = "SELECT name, surname FROM `teachers` ORDER BY surname;";
@@ -97,7 +97,7 @@ if ($conn && $conn->connect_error) {
                 }
 
                 ?>
-            </ul>
+            </ol>
 
         </section>
 
